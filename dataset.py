@@ -22,7 +22,7 @@ def rand_bbox(size, lam):
     bby2 = np.clip(cy + cut_h // 2, 0, H)
     return bbx1, bby1, bbx2, bby2
 
-def imgpath_label(root = '/data1/syx/dataset/cell_anno_1115_global_text_jpg_split/cell_anno_1115_global_text_train.txt'):
+def imgpath_label(root = ''):
     cls2label = {'AGC':0,'ASC-H':1,'ASC-US':2,'HSIL':1,'LSIL':3,'N':4}
     f = open(root)
     x_l = f.readlines()
@@ -38,7 +38,7 @@ def imgpath_label(root = '/data1/syx/dataset/cell_anno_1115_global_text_jpg_spli
 
     return x_list, y_list
 
-class Blood_Data(Dataset):
+class B_Data(Dataset):
     def __init__(self, txt_path, transform, mode='train'):
         # with open(txt_path) as input_file:
             # lines = input_file.readlines()
@@ -104,10 +104,10 @@ class Blood_Data(Dataset):
 
         return img, label
 
-class Huaxi_Blood_Data(Dataset):
+class H_B_Data(Dataset):
     def __init__(self, fold, transform):
 
-        root = '/data2/Public_dataset/huaxi_bone_marrow/implementation/subset'
+        root = ''
         self.image = []
         self.label = []
         for f in fold:
