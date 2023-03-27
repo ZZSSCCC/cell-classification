@@ -32,9 +32,9 @@ def get_loader(args):
         transforms.ToTensor(),
         transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
     ])
-    trainset = B_Data('/data1/syx/dataset/cell_anno_1115_global_text_jpg_split/cell_anno_1115_global_text_train.txt', transform=train_transform,
+    trainset = B_Data('./dataset/cell_anno_1115_global_text_jpg_split/cell_anno_1115_global_text_train.txt', transform=train_transform,
                           mode='train')
-    testset = B_Data('/data1/syx/dataset/cell_anno_1115_global_text_jpg_split/cell_anno_1115_global_text_test.txt', transform=test_transform,
+    testset = B_Data('./dataset/cell_anno_1115_global_text_jpg_split/cell_anno_1115_global_text_test.txt', transform=test_transform,
                          mode='test')
     # train_sampler = RandomSampler(trainset) #if args.local_rank == -1 else DistributedSampler(trainset)
     # test_sampler = SequentialSampler(testset) #if args.local_rank == -1 else DistributedSampler(testset)
