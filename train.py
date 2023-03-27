@@ -188,7 +188,7 @@ def test(args):
     device = torch.device("cuda")
 
     model = get_model(args.num_classes)
-    model.load_state_dict(torch.load('./output/dog/default_dog.res50_100_1/models/best_model.pth')['state_dict'])
+    model.load_state_dict(torch.load('/data2/zhangsc/Projects/miccai2023_blood/output/Mix_clsD_moco/models/best_model.pth')['state_dict'])
     model.eval()
 
     func = torch.nn.Softmax(dim=1)
