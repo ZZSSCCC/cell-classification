@@ -16,7 +16,7 @@ class Network(nn.Module):
         complete_backbone = torchvision.models.__dict__['resnet101'](pretrained=True)
         self.encoder = nn.Sequential(*(list(complete_backbone.children())[:-1]))
         self.classifier = nn.Linear(2048, num_classes)
-        self.t = 1.7
+        self.t = 1.2
         self.projection = nn.Linear(2048, 128)
 
     def forward(self, x, labels=None):
@@ -93,7 +93,7 @@ class Network_moco(nn.Module):
         # create the queue
         self.K = 9600
         self.m = 0.999
-        self.t = 1.7
+        self.t = 1.2
         self.register_buffer("queue", torch.randn(512, 9600))  # dim = 512, features num 9600
         self.register_buffer("label_queue", -1 * torch.ones(9600, dtype=torch.long))
         self.queue = nn.functional.normalize(self.queue, dim=0)
